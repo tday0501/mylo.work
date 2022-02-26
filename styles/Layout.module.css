@@ -1,0 +1,38 @@
+#appbar {
+  background-color: #fcfcfc;
+  color: black;
+  font-weight: bolder;
+  font-size: 21px;
+  padding: 0 4em;
+}
+
+#box {
+  display: flex;
+}
+
+#button {
+  background-color: #ff5c7b;
+  border: 1px solid #e06277;
+  border-radius: 4px;
+  color: white;
+  font-weight: bolder;
+}
+
+#button:hover {
+  background-color: #e06277;
+}
+
+#container {
+  min-height: 100vh;
+  padding: 64px 104px;
+  width: 100vw;
+}
+
+.span {
+  padding: 8px;
+}
+
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+}
