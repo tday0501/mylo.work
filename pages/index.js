@@ -11,12 +11,12 @@ import {
 import {
   ALL_IN_ONE_SPACE,
   TRANSFORM_THE_WAY,
-  TRANSFORM_THE_WAY_1,
   TRY_MYLO,
   YOUR_PLACE,
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
 import { theme } from "../utils/theme";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <div className={styles.container}>
         <Title />
         <Layout>
-          <Grid container direction="row">
+          <Grid container direction="row" justifyContent="space-between">
             <Grid item className={styles.box}>
               <Box>
                 <Typography variant="h1">
@@ -37,23 +37,23 @@ export default function Home() {
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
               </Box>
               <Button
-                variant="contained"
-                size="small"
-                id={styles.button}
-                href="/try-mylo"
                 disableElevation
+                href="/try-mylo"
+                id={styles.button}
+                size="small"
+                variant="contained"
               >
                 {TRY_MYLO}
               </Button>
             </Grid>
-            {/* <Grid item xs>
-              <Typography variant="h1">
-                {YOUR_PLACE}
-                <br />
-                {ALL_IN_ONE_SPACE}
-              </Typography>
-              <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
-            </Grid> */}
+            <Box id={styles.img}></Box>
+            {/* <Image
+              alt=""
+              height={435}
+              id={styles.img}
+              src="/images/image.png"
+              width={676}
+            /> */}
           </Grid>
         </Layout>
         <Footer />

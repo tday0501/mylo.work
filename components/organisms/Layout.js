@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, Chip } from "@material-ui/core";
 import { TRY_MYLO } from "../../utils/stringConstants";
 
 function ElevationScroll(props) {
@@ -40,6 +40,7 @@ export default function Layout({ children, ...props }) {
             <Box id={styles.box}>
               <Image src="/images/Logo.svg" alt="Logo" width={25} height={25} />
               <div className={styles.span}>Mylo</div>
+              <Chip label="beta" variant="outlined" size="small"/>
             </Box>
             <Button
               variant="contained"

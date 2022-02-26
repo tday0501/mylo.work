@@ -1,4 +1,5 @@
 .box {
+  padding-top: 12px;
   width: 38%;
 }
 
@@ -8,7 +9,11 @@
   border-radius: 4px;
   color: white;
   font-weight: bolder;
-  padding: 6px 16px;
+  padding: 4px 24px;
+}
+
+#button:hover {
+  background-color: #e06277;
 }
 
 .container {
@@ -41,10 +46,16 @@
   flex-grow: 1;
 }
 
+#img {
+  height: 435px;
+  width: 676px;
+  background-color: #40C5FF;
+  border-radius: 6px;
+}
+
 .padding {
   padding: 8px 0 16px;
 }
-
 
 @media (max-width: 600px) {
   .grid {

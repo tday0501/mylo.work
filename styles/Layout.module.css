@@ -3,11 +3,12 @@
   color: black;
   font-weight: bolder;
   font-size: 21px;
-  padding: 0 4em;
+  padding: 8px 4em;
 }
 
 #box {
   display: flex;
+  align-items: center;
 }
 
 #button {
