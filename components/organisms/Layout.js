@@ -6,8 +6,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
-import { Box, Button, Chip } from "@material-ui/core";
+import { Box, Button, Chip, Link } from "@material-ui/core";
 import { TRY_MYLO } from "../../utils/stringConstants";
+import { useRouter } from "next/router";
+import Footer from "./Footer"
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -30,32 +32,44 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Layout({ children, ...props }) {
+export default function Layout({ children, tryMylo, ...props }) {
+  const router = useRouter();
+
   return (
     <>
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar id={styles.appbar}>
           <Toolbar id={styles.toolbar}>
-            <Box id={styles.box}>
-              <Image src="/images/Logo.svg" alt="Logo" width={25} height={25} />
-              <div className={styles.span}>Mylo</div>
-              <Chip label="beta" variant="outlined" size="small"/>
-            </Box>
-            <Button
-              variant="contained"
-              size="small"
-              id={styles.button}
-              href="/try-mylo"
-              disableElevation
-            >
-              { TRY_MYLO }
-            </Button>
+            <Link href="/" color="inherit" style={{ textDecoration: "none" }}>
+              <Box id={styles.box}>
+                <Image
+                  src="/images/Logo.svg"
+                  alt="Logo"
+                  width={25}
+                  height={25}
+                />
+                <div className={styles.span}>Mylo</div>
+                <Chip label="beta" variant="outlined" size="small" />
+              </Box>
+            </Link>
+            {!tryMylo && (
+              <Button
+                variant="contained"
+                size="small"
+                id={styles.button}
+                onClick={() => router.push("/try-mylo")}
+                disableElevation
+              >
+                {TRY_MYLO}
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
       <Toolbar />
       <Box id={styles.container}>{children}</Box>
+      <Footer />
     </>
   );
 }

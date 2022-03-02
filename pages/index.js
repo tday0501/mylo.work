@@ -1,4 +1,3 @@
-import Footer from "../components/organisms/Footer";
 import Layout from "../components/organisms/Layout";
 import styles from "../styles/Home.module.css";
 import {
@@ -56,7 +55,7 @@ export default function Home() {
             /> */}
           </Grid>
         </Layout>
-        <Footer />
+        
       </div>
     </ThemeProvider>
   );
