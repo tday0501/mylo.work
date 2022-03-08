@@ -23,7 +23,12 @@ export default function Home() {
       <div className={styles.container}>
         <Title />
         <Layout>
-          <Grid container direction="row" justifyContent="space-between">
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            className={styles.gridContainer}
+          >
             <Grid item className={styles.box}>
               <Box>
                 <Typography variant="h1">
@@ -54,8 +59,92 @@ export default function Home() {
               width={676}
             /> */}
           </Grid>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            className={styles.gridContainer}
+          >
+            <Grid item className={styles.box}>
+              <Box>
+                <Typography variant="h4">
+                  What you need, <br /> when you need it
+                </Typography>
+              </Box>
+              <Box className={styles.padding}>
+                <Typography variant="subtitle1">
+                  Spend less time shuffling tabs with a comprehensive dashboard
+                  configuration and all your work tools at your fingertips.
+                </Typography>
+              </Box>
+            </Grid>
+            <Box id={styles.img}></Box>
+            {/* <Image
+              alt=""
+              height={435}
+              id={styles.img}
+              src="/images/image.png"
+              width={676}
+            /> */}
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            className={styles.gridContainer}
+          >
+            <Grid item className={styles.box}>
+              <Box>
+                <Typography variant="h4">
+                  Enabling teams to do
+                  <br />
+                  their best work
+                </Typography>
+              </Box>
+              <Box className={styles.padding}>
+                <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
+              </Box>
+            </Grid>
+            <Box id={styles.img}></Box>
+            {/* <Image
+              alt=""
+              height={435}
+              id={styles.img}
+              src="/images/image.png"
+              width={676}
+            /> */}
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            className={styles.gridContainer}
+          >
+            <Grid item className={styles.box}>
+              <Box>
+                <Typography variant="h4">
+                  {YOUR_PLACE}
+                  <br />
+                  {ALL_IN_ONE_SPACE}
+                </Typography>
+              </Box>
+              <Box className={styles.padding}>
+                <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
+              </Box>
+            </Grid>
+            <Box id={styles.img}></Box>
+            {/* <Image
+              alt=""
+              height={435}
+              id={styles.img}
+              src="/images/image.png"
+              width={676}
+            /> */}
+          </Grid>
         </Layout>
-        
       </div>
     </ThemeProvider>
   );
