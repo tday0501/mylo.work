@@ -3,10 +3,11 @@
   color: black;
   font-weight: bolder;
   font-size: 21px;
-  padding: 0 4em;
+  padding: 8px 4em;
 }
 
 #box {
+  align-items: center;
   display: flex;
 }
 
@@ -23,9 +24,9 @@
 }
 
 #container {
-  min-height: 100vh;
-  padding: 64px 104px;
-  width: 100vw;
+  height: 100%;
+  padding: 0 104px;
+  width: 100%;
 }
 
 .span {
