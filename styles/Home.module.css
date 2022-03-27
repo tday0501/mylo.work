@@ -52,10 +52,11 @@
 }
 
 #img {
-  height: 435px; /* 435px*/  
+  height: 435px; 
   width: 676px;
   background-color: #40C5FF;
   border-radius: 6px;
+  aspect-ratio: auto 677 / 435;
 }
 
 .padding {
