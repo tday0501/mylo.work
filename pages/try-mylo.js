@@ -11,18 +11,31 @@ import {
 } from "@material-ui/core";
 import { theme } from "../utils/theme";
 import { SIGN_UP } from "../utils/stringConstants";
-import { useState } from "react";
+import React from "react";
+import axios from "axios";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = React.useState("");
+  const [name, setName] = React.useState("");
 
   const handleSubmit = () => {
     if (email) {
-      console.log(name);
-      console.log(email);
-      setEmail("");
-      setName("");
+      axios
+        .post(
+          "https://7ikqn7jf39.execute-api.us-east-2.amazonaws.com/dev/beta",
+          {
+            useremail: email,
+            username: name,
+          }
+        )
+        .then(() => {
+          setEmail("");
+          setName("");
+        })
+        .catch((e) => {
+          //TODO: add toast message on error
+          console.log(e);
+        });
     }
   };
 
