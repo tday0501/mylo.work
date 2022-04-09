@@ -69,14 +69,13 @@ export default function Home() {
             <Grid item className={styles.box}>
               <Box>
                 <Typography variant="h4">
-                  What you need, <br /> when you need it
+                  Enabling teams to do
+                  <br />
+                  their best work
                 </Typography>
               </Box>
               <Box className={styles.padding}>
-                <Typography variant="subtitle1">
-                  Spend less time shuffling tabs with a comprehensive dashboard
-                  configuration and all your work tools at your fingertips.
-                </Typography>
+                <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
               </Box>
             </Grid>
             <Box id={styles.img}></Box>
@@ -98,13 +97,14 @@ export default function Home() {
             <Grid item className={styles.box}>
               <Box>
                 <Typography variant="h4">
-                  Enabling teams to do
-                  <br />
-                  their best work
+                  What you need, <br /> when you need it
                 </Typography>
               </Box>
               <Box className={styles.padding}>
-                <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
+                <Typography variant="subtitle1">
+                  Spend less time shuffling tabs with a comprehensive dashboard
+                  configuration and all your work tools at your fingertips.
+                </Typography>
               </Box>
             </Grid>
             <Box id={styles.img}></Box>
