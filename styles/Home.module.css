@@ -3,19 +3,6 @@
   width: 38%;
 }
 
-#button {
-  background-color: #ff5c7b;
-  border: 1px solid #e06277;
-  border-radius: 4px;
-  color: white;
-  font-weight: bolder;
-  padding: 4px 24px;
-}
-
-#button:hover {
-  background-color: #e06277;
-}
-
 .container {
   background-color: #fcfcfc;
   width: 100%;

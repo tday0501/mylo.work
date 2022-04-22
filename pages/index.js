@@ -2,9 +2,7 @@ import Layout from "../components/organisms/Layout";
 import styles from "../styles/Home.module.css";
 import {
   Box,
-  Button,
   Grid,
-  ThemeProvider,
   Typography,
 } from "@material-ui/core";
 import {
@@ -14,12 +12,12 @@ import {
   YOUR_PLACE,
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
-import { theme } from "../utils/theme";
 import Image from "next/image";
+import Button from '../components/molecules/Button'
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
+    // <ThemeProvider theme={theme}>
       <div className={styles.container}>
         <Title />
         <Layout>
@@ -41,11 +39,11 @@ export default function Home() {
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
               </Box>
               <Button
-                disableElevation
                 href="/try-mylo"
-                id={styles.button}
-                size="small"
-                variant="contained"
+                style={{
+                  border: "1px solid #e06277",
+                  padding: "4px 24px"
+                }}
               >
                 {TRY_MYLO}
               </Button>
@@ -146,6 +144,6 @@ export default function Home() {
           </Grid>
         </Layout>
       </div>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }

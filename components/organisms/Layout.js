@@ -6,7 +6,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
-import { Box, Button, Chip, Link } from "@material-ui/core";
+import { Box, Chip, Link } from "@material-ui/core";
+import Button from '../molecules/Button'
 import { TRY_MYLO } from "../../utils/stringConstants";
 import { useRouter } from "next/router";
 import Footer from "./Footer"
@@ -55,11 +56,10 @@ export default function Layout({ children, tryMylo, ...props }) {
             </Link>
             {!tryMylo && (
               <Button
-                variant="contained"
-                size="small"
-                id={styles.button}
-                onClick={() => router.push("/try-mylo")}
-                disableElevation
+                href="/try-mylo"
+                style={{
+                  border: "1px solid #e06277",
+                }}
               >
                 {TRY_MYLO}
               </Button>
