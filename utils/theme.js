@@ -1,6 +1,15 @@
 import { createTheme } from '@material-ui/core/styles';
 
 export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ff5c7b',
+      dark: '#e06277',
+    },
+    secondary: {
+      main: '#000',
+    },
+  },
   typography: {
     h1: {
         fontSize: 64,

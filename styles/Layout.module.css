@@ -11,18 +11,6 @@
   display: flex;
 }
 
-#button {
-  background-color: #ff5c7b;
-  border: 1px solid #e06277;
-  border-radius: 4px;
-  color: white;
-  font-weight: bolder;
-}
-
-#button:hover {
-  background-color: #e06277;
-}
-
 #container {
   height: 100%;
   padding: 0 104px;
