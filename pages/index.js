@@ -13,7 +13,7 @@ import {
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
 import Image from "next/image";
-import Button from '../components/molecules/Button'
+import Button from '../components/molecules/button/Button'
 
 export default function Home() {
   return (

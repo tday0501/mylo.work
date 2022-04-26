@@ -5,7 +5,7 @@ import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import { SIGN_UP } from "../utils/stringConstants";
 import React from "react";
 import axios from "axios";
-import Button from "../components/molecules/Button";
+import Button from "../components/molecules/button/Button";
 
 export default function Home() {
   const [email, setEmail] = React.useState("");

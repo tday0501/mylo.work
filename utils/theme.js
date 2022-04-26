@@ -7,7 +7,13 @@ export const theme = createTheme({
       dark: '#e06277',
     },
     secondary: {
-      main: '#000',
+      main: '#FFE687',
+    },
+    default: {
+      main: '#40C5FF',
+    }, 
+    success: {
+      main: '#46D586',
     },
   },
   typography: {

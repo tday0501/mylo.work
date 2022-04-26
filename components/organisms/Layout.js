@@ -7,7 +7,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
 import { Box, Chip, Link } from "@material-ui/core";
-import Button from '../molecules/Button'
+import Button from '../molecules/button/Button'
 import { TRY_MYLO } from "../../utils/stringConstants";
 import { useRouter } from "next/router";
 import Footer from "./Footer"
