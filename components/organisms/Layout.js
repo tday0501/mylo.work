@@ -7,10 +7,10 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
 import { Box, Chip, Link } from "@material-ui/core";
-import Button from '../molecules/button/Button'
+import Button from "../molecules/button/Button";
 import { TRY_MYLO } from "../../utils/stringConstants";
 import { useRouter } from "next/router";
-import Footer from "./Footer"
+import Footer from "./Footer";
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -68,7 +68,9 @@ export default function Layout({ children, tryMylo, ...props }) {
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-      <Box id={styles.container}>{children}</Box>
+      <Box id={styles.container}>
+        {children}
+      </Box>
       <Footer />
     </>
   );

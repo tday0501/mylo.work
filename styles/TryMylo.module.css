@@ -5,7 +5,7 @@
 
 .container {
   background-color: #fcfcfc;
-  height: calc(100vh - 148px);
+  background-color: blue;
 }
 
 #heading {
