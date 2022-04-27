@@ -1,7 +1,4 @@
-// Button.stories.js|jsx
-
 import React from "react";
-
 import Button from "./Button";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "../../../utils/theme";

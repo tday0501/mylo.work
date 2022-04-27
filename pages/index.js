@@ -1,10 +1,5 @@
 import Layout from "../components/organisms/Layout";
-import styles from "../styles/Home.module.css";
-import {
-  Box,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Box, Grid, Typography } from "@material-ui/core";
 import {
   ALL_IN_ONE_SPACE,
   TRANSFORM_THE_WAY,
@@ -13,137 +8,148 @@ import {
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
 import Image from "next/image";
-import Button from '../components/molecules/button/Button'
+import Button from "../components/molecules/button/Button";
 
 export default function Home() {
   return (
-    // <ThemeProvider theme={theme}>
-      <div className={styles.container}>
-        <Title />
-        <Layout>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            className={styles.gridContainer}
-          >
-            <Grid item className={styles.box}>
-              <Box>
+    <>
+      <Title />
+      <Layout>
+        <Grid container spacing={10}>
+          <Grid container direction="row" item justifyContent="space-between">
+            <Grid container direction="column" spacing={2} xs={5}>
+              <Grid item>
                 <Typography variant="h1">
                   {YOUR_PLACE}
                   <br />
                   {ALL_IN_ONE_SPACE}
                 </Typography>
-              </Box>
-              <Box className={styles.padding}>
+              </Grid>
+              <Grid item>
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
-              </Box>
-              <Button
-                href="/try-mylo"
-                style={{
-                  border: "1px solid #e06277",
-                  padding: "4px 24px"
-                }}
-              >
-                {TRY_MYLO}
-              </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  href="/try-mylo"
+                  style={{
+                    border: "1px solid #e06277",
+                    padding: "4px 24px",
+                  }}
+                >
+                  {TRY_MYLO}
+                </Button>
+              </Grid>
             </Grid>
-            <Box id={styles.img}></Box>
-            {/* <Image
+            <Grid item>
+              <Box
+                style={{
+                  height: "435px",
+                  width: "676px",
+                  backgroundColor: "#40C5FF",
+                  borderRadius: "6px",
+                }}
+              />
+            </Grid>
+          </Grid>
+          {/* <Image
               alt=""
               height={435}
-              id={styles.img}
               src="/images/image.png"
               width={676}
             /> */}
-          </Grid>
           <Grid
+            alignItems="center"
             container
             direction="row"
+            item
             justifyContent="space-between"
-            alignItems="center"
-            className={styles.gridContainer}
           >
-            <Grid item className={styles.box}>
-              <Box>
+            <Grid container direction="column" spacing={2} xs={5}>
+              <Grid item>
                 <Typography variant="h4">
                   Enabling teams to do
                   <br />
                   their best work
                 </Typography>
-              </Box>
-              <Box className={styles.padding}>
+              </Grid>
+              <Grid item>
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
-              </Box>
+              </Grid>
             </Grid>
-            <Box id={styles.img}></Box>
-            {/* <Image
-              alt=""
-              height={435}
-              id={styles.img}
-              src="/images/image.png"
-              width={676}
-            /> */}
+            <Grid item>
+              <Box
+                style={{
+                  height: "435px",
+                  width: "676px",
+                  backgroundColor: "#40C5FF",
+                  borderRadius: "6px",
+                }}
+              />
+            </Grid>
           </Grid>
           <Grid
+            alignItems="center"
             container
             direction="row"
+            item
             justifyContent="space-between"
-            alignItems="center"
-            className={styles.gridContainer}
           >
-            <Grid item className={styles.box}>
-              <Box>
+            <Grid container direction="column" spacing={2} xs={5}>
+              <Grid item>
                 <Typography variant="h4">
                   What you need, <br /> when you need it
                 </Typography>
-              </Box>
-              <Box className={styles.padding}>
+              </Grid>
+              <Grid item>
                 <Typography variant="subtitle1">
                   Spend less time shuffling tabs with a comprehensive dashboard
                   configuration and all your work tools at your fingertips.
                 </Typography>
-              </Box>
+              </Grid>
             </Grid>
-            <Box id={styles.img}></Box>
-            {/* <Image
-              alt=""
-              height={435}
-              id={styles.img}
-              src="/images/image.png"
-              width={676}
-            /> */}
+            <Grid item>
+              <Box
+                style={{
+                  height: "435px",
+                  width: "676px",
+                  backgroundColor: "#40C5FF",
+                  borderRadius: "6px",
+                }}
+              />
+            </Grid>
           </Grid>
           <Grid
+            alignItems="center"
             container
             direction="row"
+            item
             justifyContent="space-between"
-            alignItems="center"
-            className={styles.gridContainer}
           >
-            <Grid item className={styles.box}>
-              <Box>
+            <Grid container direction="column" spacing={2} xs={5}>
+              <Grid item>
                 <Typography variant="h4">
                   {YOUR_PLACE}
                   <br />
                   {ALL_IN_ONE_SPACE}
                 </Typography>
-              </Box>
-              <Box className={styles.padding}>
+              </Grid>
+              <Grid item>
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
-              </Box>
+              </Grid>
             </Grid>
-            <Box id={styles.img}></Box>
-            {/* <Image
-              alt=""
-              height={435}
-              id={styles.img}
-              src="/images/image.png"
-              width={676}
-            /> */}
+            <Grid item>
+              <Box
+                style={{
+                  height: "435px",
+                  width: "676px",
+                  backgroundColor: "#40C5FF",
+                  borderRadius: "6px",
+                }}
+              />
+            </Grid>
           </Grid>
-        </Layout>
-      </div>
-    // </ThemeProvider>
+        </Grid>
+      </Layout>
+    </>
   );
 }
