@@ -1,16 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import styles from "../../styles/Layout.module.css";
 import Image from "next/image";
-import { Box, Chip, Link } from "@material-ui/core";
-import Button from '../molecules/button/Button'
+import { AppBar, Box, Chip, Link, Toolbar } from "@material-ui/core";
+import Button from "../molecules/button/Button";
 import { TRY_MYLO } from "../../utils/stringConstants";
 import { useRouter } from "next/router";
-import Footer from "./Footer"
+import Footer from "./Footer";
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -40,18 +37,26 @@ export default function Layout({ children, tryMylo, ...props }) {
     <>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar id={styles.appbar}>
-          <Toolbar id={styles.toolbar}>
-            <Link href="/" color="inherit" style={{ textDecoration: "none" }}>
-              <Box id={styles.box}>
+        <AppBar
+          style={{
+            backgroundColor: "#fcfcfc",
+            color: "black",
+            fontWeight: "bolder",
+            fontSize: "21px",
+            padding: "8px 4em",
+          }}
+        >
+          <Toolbar style={{ justifyContent: "space-between" }}>
+            <Link color="inherit" href="/" style={{ textDecoration: "none" }}>
+              <Box alignItems="center" display="flex">
                 <Image
                   src="/images/Logo.svg"
-                  alt="Logo"
-                  width={25}
+                  alt="Mylo logo"
                   height={25}
+                  width={25}
                 />
-                <div className={styles.span}>Mylo</div>
-                <Chip label="beta" variant="outlined" size="small" />
+                <Box p="8px">Mylo</Box>
+                <Chip label="beta" size="small" variant="outlined" />
               </Box>
             </Link>
             {!tryMylo && (
@@ -67,9 +72,19 @@ export default function Layout({ children, tryMylo, ...props }) {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Toolbar />
-      <Box id={styles.container}>{children}</Box>
-      <Footer />
+      <Box>
+        <Box
+          bgcolor="#fcfcfc"
+          height="100%"
+          // px="108px" //not working
+          // py="98px" //not working
+          style={{ padding: "98px 108px" }}
+          width="100%"
+        >
+          {children}
+        </Box>
+        <Footer />
+      </Box>
     </>
   );
 }

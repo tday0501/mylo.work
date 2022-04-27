@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+storybook
+
+# Next.js build output
+.next
+.next/*
+
+# Build
+dist
+.next
+.vscode
+.en.local
+yarn
+
+build/Release
