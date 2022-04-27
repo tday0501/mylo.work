@@ -1,17 +1,9 @@
-import { Box } from "@material-ui/core";
+import styles from "../../styles/Home.module.css";
 
 export default function Layout() {
   return (
-    <Box
-      alignItems="center"
-      bgcolor="#fcfcfc"
-      borderTop="1px solid #eaeaea"
-      display="flex"
-      height="72px"
-      justifyContent="center"
-      width="100%"
-    >
+    <footer className={styles.footer}>
       ©2022 Mylo Labs, Inc.
-    </Box>
+    </footer>
   );
 }

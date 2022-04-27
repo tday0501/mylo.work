@@ -1,0 +1,58 @@
+.box {
+  padding-top: 12px;
+  width: 38%;
+}
+
+.container {
+  background-color: #fcfcfc;
+  width: 100%;
+}
+
+.code {
+  background: #fcfcfc;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.footer {
+  background-color: #fcfcfc;
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.gridContainer {
+  margin: 98px 0 ;
+}
+
+#img {
+  height: 435px; 
+  width: 676px;
+  background-color: #40C5FF;
+  border-radius: 6px;
+  aspect-ratio: auto 677 / 435;
+}
+
+.padding {
+  padding: 8px 0 16px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
