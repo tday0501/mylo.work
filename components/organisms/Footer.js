@@ -5,7 +5,7 @@ export default function Layout() {
     <Box
       alignItems="center"
       bgcolor="#fcfcfc"
-      borderTop="1px solid #eaeaea"
+      borderTop="2px solid #eaeaea"
       display="flex"
       height="72px"
       justifyContent="center"

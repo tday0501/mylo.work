@@ -17,7 +17,7 @@ export default function Home() {
       <Layout>
         <Grid container spacing={10}>
           <Grid container direction="row" item justifyContent="space-between">
-            <Grid container direction="column" spacing={2} xs={5}>
+            <Grid container direction="column" item spacing={2} xs={5}>
               <Grid item>
                 <Typography variant="h1">
                   {YOUR_PLACE}
@@ -64,7 +64,7 @@ export default function Home() {
             item
             justifyContent="space-between"
           >
-            <Grid container direction="column" spacing={2} xs={5}>
+            <Grid container direction="column" item spacing={2} xs={5}>
               <Grid item>
                 <Typography variant="h4">
                   Enabling teams to do
@@ -94,7 +94,7 @@ export default function Home() {
             item
             justifyContent="space-between"
           >
-            <Grid container direction="column" spacing={2} xs={5}>
+            <Grid container direction="column" item spacing={2} xs={5}>
               <Grid item>
                 <Typography variant="h4">
                   What you need, <br /> when you need it
@@ -110,7 +110,7 @@ export default function Home() {
             <Grid item>
               <Box
                 style={{
-                  height: "435px",
+                  maxHeight: "435px",
                   width: "676px",
                   backgroundColor: "#40C5FF",
                   borderRadius: "6px",
@@ -125,7 +125,7 @@ export default function Home() {
             item
             justifyContent="space-between"
           >
-            <Grid container direction="column" spacing={2} xs={5}>
+            <Grid container direction="column" item spacing={2} xs={5}>
               <Grid item>
                 <Typography variant="h4">
                   {YOUR_PLACE}
