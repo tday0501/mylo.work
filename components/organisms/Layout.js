@@ -43,7 +43,7 @@ export default function Layout({ children, tryMylo, ...props }) {
             color: "black",
             fontWeight: "bolder",
             fontSize: "21px",
-            padding: "8px 4em",
+            padding: "8px 6em",
           }}
         >
           <Toolbar style={{ justifyContent: "space-between" }}>
@@ -72,13 +72,13 @@ export default function Layout({ children, tryMylo, ...props }) {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Box>
+      <Box bgcolor="#fcfcfc" style={{ padding: "148px 141px 0" }}>
         <Box
-          bgcolor="#fcfcfc"
           height="100%"
           // px="108px" //not working
-          // py="98px" //not working
-          style={{ padding: "98px 108px" }}
+          // py="148px" //not working
+          minHeight="calc(100vh - 220px)"
+          style={{ paddingBottom: "98px" }}
           width="100%"
         >
           {children}

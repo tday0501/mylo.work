@@ -1,8 +1,7 @@
 import { ThemeProvider } from "@material-ui/core";
-import "../styles/globals.css";
 import { theme } from "../utils/theme";
 
-function MyApp({ Component, pageProps }) {
+function Mylo({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
@@ -10,4 +9,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default Mylo;
