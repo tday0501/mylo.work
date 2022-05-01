@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: "#fcfcfc",
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up('lg')]: {
       padding: "148px 80px 0",
     },
     [theme.breakpoints.between("sm", "md")]: {
