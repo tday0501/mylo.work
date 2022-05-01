@@ -11,10 +11,20 @@ import Footer from "./Footer";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
+  appbar: {
+    backgroundColor: "#fcfcfc",
+    color: "black",
+    fontWeight: "bolder",
+    fontSize: "21px",
+    padding: "0px 180px",
+    [theme.breakpoints.down("md")]: {
+      padding: "0px 60px",
+    },
+  },
   container: {
     backgroundColor: "#fcfcfc",
-    [theme.breakpoints.up('lg')]: {
-      padding: "148px 80px 0",
+    [theme.breakpoints.up("lg")]: {
+      padding: "148px 180px 0",
     },
     [theme.breakpoints.between("sm", "md")]: {
       padding: "90px 60px 0",
@@ -69,13 +79,7 @@ export default function Layout({ children, tryMylo, ...props }) {
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar
-          style={{
-            backgroundColor: "#fcfcfc",
-            color: "black",
-            fontWeight: "bolder",
-            fontSize: "21px",
-            padding: "0 80px",
-          }}
+          className={classes.appbar}
         >
           <Toolbar className={classes.centerLogo}>
             <Link color="inherit" href="/" style={{ textDecoration: "none" }}>
