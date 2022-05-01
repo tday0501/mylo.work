@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/organisms/Layout";
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
-import { SIGN_UP } from "../utils/stringConstants";
+import { BACK_TO_HOME, SIGN_UP } from "../utils/stringConstants";
 import React from "react";
 import axios from "axios";
 import Button from "../components/molecules/button/Button";
@@ -52,18 +52,32 @@ export default function Home() {
           spacing={4}
         >
           {validUser ? (
-            <Grid item style={{ textAlign: "center" }}>
-              <Typography variant="h4">🤗 You're all set!</Typography>
-              <Button
-                onClick={() => router.push("/")}
-                style={{
-                  border: "1px solid #e06277",
-                  margin: "2em",
-                  padding: "4px 100px",
-                }}
-              >
-                HOME
-              </Button>
+            <Grid
+              container
+              direction="column"
+              item
+              style={{ textAlign: "center" }}
+              spacing={2}
+            >
+              <Grid item>
+                <Typography variant="h4">🤗 You're all set!</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  Thank you for joining our beta launch. An automated email will
+                  be sent to your registered email.
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={() => router.push("/")}
+                  style={{
+                    border: "1px solid #e06277",
+                  }}
+                >
+                  {BACK_TO_HOME}
+                </Button>
+              </Grid>
             </Grid>
           ) : (
             <>
