@@ -8,6 +8,46 @@ import Button from "../molecules/button/Button";
 import { TRY_MYLO } from "../../utils/stringConstants";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles((theme) => ({
+  appbar: {
+    backgroundColor: "#fcfcfc",
+    color: "black",
+    fontWeight: "bolder",
+    fontSize: "21px",
+    padding: "0px 180px",
+    [theme.breakpoints.down("md")]: {
+      padding: "0px 60px",
+    },
+  },
+  container: {
+    backgroundColor: "#fcfcfc",
+    [theme.breakpoints.up("lg")]: {
+      padding: "148px 180px 0",
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      padding: "90px 60px 0",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "90px 20px 0",
+    },
+  },
+  centerLogo: {
+    padding: "0",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+    },
+    [theme.breakpoints.up("sm")]: {
+      justifyContent: "space-between",
+    },
+  },
+  showButton: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+}));
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -31,24 +71,23 @@ ElevationScroll.propTypes = {
 };
 
 export default function Layout({ children, tryMylo, ...props }) {
+  const classes = useStyles();
   const router = useRouter();
 
   return (
-    <>
+    <Box className={classes.container}>
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar
-          style={{
-            backgroundColor: "#fcfcfc",
-            color: "black",
-            fontWeight: "bolder",
-            fontSize: "21px",
-            padding: "8px 6em",
-          }}
+          className={classes.appbar}
         >
-          <Toolbar style={{ justifyContent: "space-between" }}>
+          <Toolbar className={classes.centerLogo}>
             <Link color="inherit" href="/" style={{ textDecoration: "none" }}>
-              <Box alignItems="center" display="flex">
+              <Box
+                alignItems="center"
+                display="flex"
+                style={{ padding: "0px" }}
+              >
                 <Image
                   src="/images/Logo.svg"
                   alt="Mylo logo"
@@ -65,6 +104,7 @@ export default function Layout({ children, tryMylo, ...props }) {
                 style={{
                   border: "1px solid #e06277",
                 }}
+                className={classes.showButton}
               >
                 {TRY_MYLO}
               </Button>
@@ -72,19 +112,17 @@ export default function Layout({ children, tryMylo, ...props }) {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Box bgcolor="#fcfcfc" style={{ padding: "148px 141px 0" }}>
-        <Box
-          height="100%"
-          // px="108px" //not working
-          // py="148px" //not working
-          minHeight="calc(100vh - 220px)"
-          style={{ paddingBottom: "98px" }}
-          width="100%"
-        >
-          {children}
-        </Box>
-        <Footer />
+      <Box
+        height="100%"
+        // px="108px" //not working
+        // py="148px" //not working
+        minHeight="calc(100vh - 220px)"
+        style={{ paddingBottom: "98px", overflow: "hidden" }}
+        width="100%"
+      >
+        {children}
       </Box>
-    </>
+      <Footer />
+    </Box>
   );
 }

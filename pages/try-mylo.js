@@ -1,14 +1,18 @@
 import Head from "next/head";
 import Layout from "../components/organisms/Layout";
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
-import { SIGN_UP } from "../utils/stringConstants";
+import { BACK_TO_HOME, SIGN_UP } from "../utils/stringConstants";
 import React from "react";
 import axios from "axios";
 import Button from "../components/molecules/button/Button";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState("");
+  const [validUser, setValidUser] = React.useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = () => {
     if (email) {
@@ -21,6 +25,7 @@ export default function Home() {
           }
         )
         .then(() => {
+          setValidUser(true);
           setEmail("");
           setName("");
         })
@@ -46,75 +51,107 @@ export default function Home() {
           justifyContent="center"
           spacing={4}
         >
-          <Grid item>
-            <Typography variant="h4">👋 Welcome!</Typography>
-          </Grid>
-          <Grid
-            alignItems="center"
-            container
-            direction="column"
-            item
-            spacing={3}
-          >
-            <Grid item>
-              <Typography variant="h6">
-                It's great to have you with us! We're launching very soon.
-              </Typography>
-            </Grid>
+          {validUser ? (
             <Grid
-              alignItems="center"
               container
-              direction="row"
+              direction="column"
               item
-              justifyContent="center"
+              style={{ textAlign: "center" }}
+              spacing={2}
             >
-              <Typography variant="h5">I,</Typography>
-              <span style={{ margin: "-24px 8px 0 8px" }}>
-                <TextField
-                  label="Your name"
-                  onChange={(e) => {
-                    setName(e.target.value);
+              <Grid item>
+                <Typography variant="h4">🤗 You're all set!</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  Thank you for joining our beta launch. An automated email will
+                  be sent to your registered email.
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={() => router.push("/")}
+                  style={{
+                    border: "1px solid #e06277",
                   }}
-                  value={name}
-                />
-              </span>
-              <Typography variant="h5">
-                would love a beta invite! Please
-              </Typography>
+                >
+                  {BACK_TO_HOME}
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid
-            alignItems="center"
-            container
-            direction="row"
-            item
-            justifyContent="center"
-          >
-            <Typography variant="h5">send me an invite @</Typography>
-            <span style={{ margin: "-24px 8px 0 8px" }}>
-              <TextField
-                label="Your email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
+          ) : (
+            <>
+              <Grid item>
+                <Typography variant="h4">👋 Welcome!</Typography>
+              </Grid>
+              <Grid
+                alignItems="center"
+                container
+                direction="column"
+                item
+                spacing={3}
+              >
+                <Grid item>
+                  <Typography variant="h6">
+                    It's great to have you with us! We're launching very soon.
+                  </Typography>
+                </Grid>
+                <Grid
+                  alignItems="center"
+                  container
+                  direction="row"
+                  item
+                  justifyContent="center"
+                >
+                  <Typography variant="h5">I,</Typography>
+                  <span style={{ margin: "-24px 8px 0 8px" }}>
+                    <TextField
+                      label="Your name"
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                      value={name}
+                    />
+                  </span>
+                  <Typography variant="h5">
+                    would love a beta invite! Please
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid
+                alignItems="center"
+                container
+                direction="row"
+                item
+                justifyContent="center"
+              >
+                <Typography variant="h5">send me an invite @</Typography>
+                <span style={{ margin: "-24px 8px 0 8px" }}>
+                  <TextField
+                    label="Your email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
+                    required
+                    type="email"
+                    value={email}
+                  />
+                </span>
+                <Typography variant="h5">when Mylo is ready.</Typography>
+              </Grid>
+              <Button
+                onClick={handleSubmit}
+                style={{
+                  border: "1px solid #e06277",
+                  margin: "2em",
+                  padding: "4px 100px",
                 }}
-                onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
-                required
-                type="email"
-                value={email}
-              />
-            </span>
-            <Typography variant="h5">when Mylo is ready.</Typography>
-          </Grid>
-          <Button
-            onClick={handleSubmit}
-            style={{
-              border: "1px solid #e06277",
-              margin: "2em",
-              padding: "4px 100px",
-            }}
-          >
-            {SIGN_UP}
-          </Button>
+              >
+                {SIGN_UP}
+              </Button>
+            </>
+          )}
         </Grid>
       </Layout>
     </>
