@@ -1,47 +1,74 @@
 import Layout from "../components/organisms/Layout";
-import { Box, Grid, Typography } from "@material-ui/core";
 import {
-  ALL_IN_ONE_SPACE,
   ENABLING_TEAMS,
   SPEED_LESS_TIME,
-  THEIR_BEST_WORK,
   TRANSFORM_THE_WAY,
   TRY_MYLO,
   WHAT_YOU_NEED,
-  WHEN_YOU_NEED,
   YOUR_PLACE,
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
 import Image from "next/image";
 import Button from "../components/molecules/button/Button";
+import { Box, Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    [theme.breakpoints.down("md")]: {
+      textAlign: "left",
+    },
+  },
+  main: {
+    [theme.breakpoints.down("sm")]: {
+      flexFlow: "column-reverse",
+      textAlign: "center",
+    },
+  },
+  typography: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.25rem",
+    },
+  },
+}));
 
 export default function Home() {
-  function GridItem({ subtitle1, subtitle2, subtext }) {
+  const classes = useStyles();
+
+  function GridItem({ subtitle, subtext }) {
     return (
       <Grid
         alignItems="center"
+        className={classes.grid}
         container
         direction="row"
         item
         justifyContent="space-between"
+        spacing={4}
       >
-        <Grid container direction="column" item spacing={2} xs={5}>
-          <Grid item>
-            <Typography variant="h4">
-              {subtitle1}
-              <br />
-              {subtitle2}
-            </Typography>
+        <Grid
+          container
+          direction="column"
+          item
+          xs={12}
+          sm={12}
+          md={4}
+          lg={4}
+          spacing={2}
+        >
+          <Grid item lg={9}>
+            <Typography variant="h4">{subtitle}</Typography>
           </Grid>
-          <Grid item>
+          <Grid item lg={12}>
             <Typography variant="subtitle1">{subtext}</Typography>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item xs={12} sm={12} md={8} lg={8}>
           <Box
             style={{
               height: "435px",
-              width: "676px",
+              maxWidth: "100%",
+              minWidth: "200px",
               backgroundColor: "#40C5FF",
               borderRadius: "6px",
             }}
@@ -56,13 +83,27 @@ export default function Home() {
       <Title />
       <Layout>
         <Grid container spacing={10}>
-          <Grid container direction="row" item justifyContent="space-between">
-            <Grid container direction="column" item spacing={2} xs={5}>
+          <Grid
+            className={classes.main}
+            container
+            direction="row"
+            item
+            justifyContent="space-between"
+            spacing={2}
+          >
+            <Grid
+              container
+              direction="column"
+              item
+              spacing={2}
+              xs={12}
+              sm={12}
+              md={6}
+              lg={4}
+            >
               <Grid item>
-                <Typography variant="h1">
+                <Typography className={classes.typography} variant="h1">
                   {YOUR_PLACE}
-                  <br />
-                  {ALL_IN_ONE_SPACE}
                 </Typography>
               </Grid>
               <Grid item>
@@ -80,11 +121,12 @@ export default function Home() {
                 </Button>
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
               <Box
                 style={{
                   height: "435px",
-                  width: "676px",
+                  maxWidth: "100%",
+                  minWidth: "200px",
                   backgroundColor: "#40C5FF",
                   borderRadius: "6px",
                 }}
@@ -97,21 +139,9 @@ export default function Home() {
             /> */}
             </Grid>
           </Grid>
-          <GridItem
-            subtitle1={ENABLING_TEAMS}
-            subtitle2={THEIR_BEST_WORK}
-            subtext={TRANSFORM_THE_WAY}
-          />
-          <GridItem
-            subtitle1={WHAT_YOU_NEED}
-            subtitle2={WHEN_YOU_NEED}
-            subtext={SPEED_LESS_TIME}
-          />
-          <GridItem
-            subtitle1={YOUR_PLACE}
-            subtitle2={ALL_IN_ONE_SPACE}
-            subtext={TRANSFORM_THE_WAY}
-          />
+          <GridItem subtitle={ENABLING_TEAMS} subtext={TRANSFORM_THE_WAY} />
+          <GridItem subtitle={WHAT_YOU_NEED} subtext={SPEED_LESS_TIME} />
+          <GridItem subtitle={YOUR_PLACE} subtext={TRANSFORM_THE_WAY} />
         </Grid>
       </Layout>
     </>
