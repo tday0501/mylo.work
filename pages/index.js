@@ -1,10 +1,13 @@
 import Layout from "../components/organisms/Layout";
 import {
-  ENABLING_TEAMS,
+  BUILT_FOR,
+  CURATE_SPACE,
+  DONT_BE_BUSY,
+  EASILY_SWITCH,
   SPEED_LESS_TIME,
   TRANSFORM_THE_WAY,
   TRY_MYLO,
-  WHAT_YOU_NEED,
+  WHATS_TRULY,
   YOUR_PLACE,
 } from "../utils/stringConstants";
 import Title from "../components/molecules/Head";
@@ -139,9 +142,9 @@ export default function Home() {
             /> */}
             </Grid>
           </Grid>
-          <GridItem subtitle={ENABLING_TEAMS} subtext={TRANSFORM_THE_WAY} />
-          <GridItem subtitle={WHAT_YOU_NEED} subtext={SPEED_LESS_TIME} />
-          <GridItem subtitle={YOUR_PLACE} subtext={TRANSFORM_THE_WAY} />
+          <GridItem subtitle={BUILT_FOR} subtext={CURATE_SPACE} />
+          <GridItem subtitle={WHATS_TRULY} subtext={SPEED_LESS_TIME} />
+          <GridItem subtitle={DONT_BE_BUSY} subtext={EASILY_SWITCH} />
         </Grid>
       </Layout>
     </>
