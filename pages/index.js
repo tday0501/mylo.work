@@ -33,12 +33,18 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2.25rem",
     },
   },
+  video: {
+    borderRadius: "5px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+    width: "700px",
+    width: "98%",
+  },
 }));
 
 export default function Home() {
   const classes = useStyles();
 
-  function GridItem({ subtitle, subtext }) {
+  function GridItem({ imageAlt, imageSrc, subtitle, subtext, videoSrc }) {
     return (
       <Grid
         alignItems="center"
@@ -59,23 +65,24 @@ export default function Home() {
           lg={4}
           spacing={2}
         >
-          <Grid item lg={9}>
+          <Grid item lg={12}>
             <Typography variant="h4">{subtitle}</Typography>
           </Grid>
           <Grid item lg={12}>
             <Typography variant="subtitle1">{subtext}</Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={12} md={8} lg={8}>
-          <Box
-            style={{
-              height: "435px",
-              maxWidth: "100%",
-              minWidth: "200px",
-              backgroundColor: "#40C5FF",
-              borderRadius: "6px",
-            }}
-          />
+        <Grid item xs={12} sm={12} md={8} lg={8} justifyContent="flex-end">
+          {imageSrc ? (
+            <Image alt={imageAlt} height={527} src={imageSrc} width={842} />
+          ) : (
+            <Box>
+              <video autoPlay playsInline loop muted className={classes.video}>
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Box>
+          )}
         </Grid>
       </Grid>
     );
@@ -95,14 +102,12 @@ export default function Home() {
             spacing={2}
           >
             <Grid
+              alignContent="center"
               container
               direction="column"
               item
               spacing={2}
-              xs={12}
-              sm={12}
-              md={6}
-              lg={4}
+              style={{ textAlign: "center" }}
             >
               <Grid item>
                 <Typography className={classes.typography} variant="h1">
@@ -112,39 +117,36 @@ export default function Home() {
               <Grid item>
                 <Typography variant="subtitle1">{TRANSFORM_THE_WAY}</Typography>
               </Grid>
-              <Grid item>
+              <Grid item style={{ margin: "3rem" }}>
                 <Button
                   href="/try-mylo"
                   style={{
                     border: "1px solid #e06277",
-                    padding: "4px 24px",
+                    padding: "8px 48px",
                   }}
                 >
                   {TRY_MYLO}
                 </Button>
               </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
-              <Box
-                style={{
-                  height: "435px",
-                  maxWidth: "100%",
-                  minWidth: "200px",
-                  backgroundColor: "#40C5FF",
-                  borderRadius: "6px",
-                }}
-              />
-              {/* <Image
-              alt=""
-              height={435}
-              src="/images/image.png"
-              width={676}
-            /> */}
-            </Grid>
           </Grid>
-          <GridItem subtitle={BUILT_FOR} subtext={CURATE_SPACE} />
-          <GridItem subtitle={WHATS_TRULY} subtext={SPEED_LESS_TIME} />
-          <GridItem subtitle={DONT_BE_BUSY} subtext={EASILY_SWITCH} />
+          <GridItem
+            imageAlt="Built for you image"
+            imageSrc={"/images/Built for you.png"}
+            subtitle={BUILT_FOR}
+            subtext={CURATE_SPACE}
+          />
+          <GridItem
+            imageAlt="Truly important image"
+            imageSrc={"/images/Truly Important.png"}
+            subtitle={WHATS_TRULY}
+            subtext={SPEED_LESS_TIME}
+          />
+          <GridItem
+            subtitle={DONT_BE_BUSY}
+            subtext={EASILY_SWITCH}
+            videoSrc="/videos/Be Productive.mp4"
+          />
         </Grid>
       </Layout>
     </>
