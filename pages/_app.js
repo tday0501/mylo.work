@@ -8,8 +8,8 @@ function Mylo({ Component, pageProps }) {
     window.$crisp=[];
     window.CRISP_WEBSITE_ID="9ab2ab35-7b03-4622-8463-a51107a27a6b";
     (function(){
-      d=document;
-      s=d.createElement("script");
+      const d=document;
+      const s=d.createElement("script");
       s.src="https://client.crisp.chat/l.js";
       s.async=1;
       d.getElementsByTagName("head")[0].appendChild(s);
