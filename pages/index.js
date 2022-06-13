@@ -74,7 +74,7 @@ export default function Home() {
         </Grid>
         <Grid item xs={12} sm={12} md={8} lg={8} justifyContent="flex-end">
           {imageSrc ? (
-            <Image alt={imageAlt} height={527} src={imageSrc} width={842} />
+            <Image alt={imageAlt} height={527} src={imageSrc} width={900} />
           ) : (
             <Box>
               <video autoPlay playsInline loop muted className={classes.video}>
