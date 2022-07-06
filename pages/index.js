@@ -132,20 +132,20 @@ export default function Home() {
           </Grid>
           <GridItem
             imageAlt="Built for you image"
-            imageSrc={"/images/Built for you.png"}
+            imageSrc={"https://s3.us-east-2.amazonaws.com/mylo.work/Built+for+you.png"}
             subtitle={BUILT_FOR}
             subtext={CURATE_SPACE}
           />
           <GridItem
             imageAlt="Truly important image"
-            imageSrc={"/images/Truly Important.png"}
+            imageSrc={"https://s3.us-east-2.amazonaws.com/mylo.work/Truly+Important.png"}
             subtitle={WHATS_TRULY}
             subtext={SPEED_LESS_TIME}
           />
           <GridItem
             subtitle={DONT_BE_BUSY}
             subtext={EASILY_SWITCH}
-            videoSrc="/videos/Be Productive.mp4"
+            videoSrc="https://s3.us-east-2.amazonaws.com/mylo.work/Be+Productive.mp4"
           />
         </Grid>
       </Layout>
