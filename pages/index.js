@@ -145,7 +145,7 @@ export default function Home() {
           <GridItem
             subtitle={DONT_BE_BUSY}
             subtext={EASILY_SWITCH}
-            videoSrc="https://s3.us-east-2.amazonaws.com/mylo.work/Be+Productive.mp4"
+            videoSrc="../public/videos/Be Productive.mp4"
           />
         </Grid>
       </Layout>
