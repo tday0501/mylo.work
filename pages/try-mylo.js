@@ -123,9 +123,13 @@ export default function Home() {
                       vertical: "bottom",
                       horizontal: "center",
                     }}
+                    
                     transformOrigin={{
                       vertical: "top",
                       horizontal: "center",
+                    }}
+                    style={{
+                      marginTop: "12px"
                     }}
                   >
                     <List dense>
