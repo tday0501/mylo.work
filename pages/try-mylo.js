@@ -135,13 +135,13 @@ export default function Home() {
                     <List dense>
                       <ListItemButton>
                         <ListItemText
-                          onClick={() => handleDownload("darwin.dmg")}
+                          onClick={() => handleDownload("darwin-beta.dmg")}
                           primary="Macs with Intel processors"
                         />
                       </ListItemButton>
                       <ListItemButton>
                         <ListItemText
-                          onClick={() => handleDownload("arm.dmg")}
+                          onClick={() => handleDownload("arm-beta.dmg")}
                           primary="Macs with Apple M1"
                         />
                       </ListItemButton>
@@ -150,7 +150,7 @@ export default function Home() {
                 </Grid>
                 <Grid item>
                   <Button
-                    onClick={() => handleDownload("Setup.exe")}
+                    onClick={() => handleDownload("Setup-beta.exe")}
                     style={{
                       border: "1px solid #e06277",
                     }}
