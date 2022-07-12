@@ -141,7 +141,7 @@ export default function Home() {
                       </ListItemButton>
                       <ListItemButton>
                         <ListItemText
-                          onClick={() => handleDownload("arm-beta.dmg")}
+                          onClick={() => handleDownload("mylo-1.0.0-arm64-beta.dmg.zip")}
                           primary="Macs with Apple M1"
                         />
                       </ListItemButton>
@@ -150,7 +150,7 @@ export default function Home() {
                 </Grid>
                 <Grid item>
                   <Button
-                    onClick={() => handleDownload("Setup-beta.exe")}
+                    onClick={() => handleDownload("mylo Setup-beta 1.0.0.exe")}
                     style={{
                       border: "1px solid #e06277",
                     }}
