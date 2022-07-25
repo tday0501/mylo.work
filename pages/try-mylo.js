@@ -1,38 +1,39 @@
 import Head from "next/head";
 import Layout from "../components/organisms/Layout";
-import { Box, Grid, TextField, Typography } from "@material-ui/core";
-import { BACK_TO_HOME, SIGN_UP } from "../utils/stringConstants";
+import {
+  Grid,
+  List,
+  ListItemText,
+  Popover,
+  Typography,
+} from "@material-ui/core";
+import { BACK_TO_HOME } from "../utils/stringConstants";
 import React from "react";
-import axios from "axios";
 import Button from "../components/molecules/button/Button";
 import { useRouter } from "next/router";
+import { ListItemButton } from "@mui/material";
 
 export default function Home() {
-  const [email, setEmail] = React.useState("");
-  const [name, setName] = React.useState("");
-  const [validUser, setValidUser] = React.useState(false);
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isDownloaded, setIsDownloaded] = React.useState(false);
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
   const router = useRouter();
 
-  const handleSubmit = () => {
-    if (email) {
-      axios
-        .post(
-          "https://7ikqn7jf39.execute-api.us-east-2.amazonaws.com/dev/beta",
-          {
-            useremail: email,
-            username: name,
-          }
-        )
-        .then(() => {
-          setValidUser(true);
-          setEmail("");
-          setName("");
-        })
-        .catch((e) => {
-          //TODO: add toast message on error
-          console.log(e);
-        });
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleDownload = (os) => {
+    try {
+      router.push(`https://s3.us-east-2.amazonaws.com/mylo.work/${os}`);
+      setIsDownloaded(true);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -51,21 +52,23 @@ export default function Home() {
           justifyContent="center"
           spacing={4}
         >
-          {validUser ? (
+          {isDownloaded ? (
             <Grid
               container
               direction="column"
               item
               style={{ textAlign: "center" }}
-              spacing={2}
+              spacing={4}
             >
               <Grid item>
                 <Typography variant="h4">🤗 You're all set!</Typography>
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  Thank you for joining our beta launch. An automated email will
-                  be sent to your registered email.
+                  Thank you for joining our beta launch.
+                  <br />
+                  Please feel free to report 🐞 bugs or issues you may come
+                  across.
                 </Typography>
               </Grid>
               <Grid item>
@@ -81,75 +84,81 @@ export default function Home() {
             </Grid>
           ) : (
             <>
-              <Grid item>
-                <Typography variant="h4">👋 Welcome!</Typography>
-              </Grid>
               <Grid
                 alignItems="center"
                 container
                 direction="column"
                 item
-                spacing={3}
+                spacing={1}
               >
                 <Grid item>
+                  <Typography variant="h4">
+                    👋 Mylo for Mac & Windows
+                  </Typography>
+                </Grid>
+                <Grid item>
                   <Typography variant="h6">
-                    It's great to have you with us! We're launching very soon.
-                  </Typography>
-                </Grid>
-                <Grid
-                  alignItems="center"
-                  container
-                  direction="row"
-                  item
-                  justifyContent="center"
-                >
-                  <Typography variant="h5">I,</Typography>
-                  <span style={{ margin: "-24px 8px 0 8px" }}>
-                    <TextField
-                      label="Your name"
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                      value={name}
-                    />
-                  </span>
-                  <Typography variant="h5">
-                    would love a beta invite! Please
+                    Image what you'll accomplish now.
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid
-                alignItems="center"
-                container
-                direction="row"
-                item
-                justifyContent="center"
-              >
-                <Typography variant="h5">send me an invite @</Typography>
-                <span style={{ margin: "-24px 8px 0 8px" }}>
-                  <TextField
-                    label="Your email"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
+              <Grid container item justifyContent="center" spacing={3}>
+                <Grid item>
+                  <Button
+                    aria-describedby={id}
+                    variant="contained"
+                    onClick={handleClick}
+                    style={{
+                      border: "1px solid #e06277",
                     }}
-                    onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
-                    required
-                    type="email"
-                    value={email}
-                  />
-                </span>
-                <Typography variant="h5">when Mylo is ready.</Typography>
+                  >
+                    Download Mac
+                  </Button>
+                  <Popover
+                    anchorEl={anchorEl}
+                    id={id}
+                    onClose={handleClose}
+                    open={open}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "center",
+                    }}
+                    
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "center",
+                    }}
+                    style={{
+                      marginTop: "12px"
+                    }}
+                  >
+                    <List dense>
+                      <ListItemButton>
+                        <ListItemText
+                          onClick={() => handleDownload("darwin-beta.dmg")}
+                          primary="Macs with Intel processors"
+                        />
+                      </ListItemButton>
+                      <ListItemButton>
+                        <ListItemText
+                          onClick={() => handleDownload("mylo-1.0.0-arm64-beta.dmg.zip")}
+                          primary="Macs with Apple M1"
+                        />
+                      </ListItemButton>
+                    </List>
+                  </Popover>
+                </Grid>
+                <Grid item>
+                  <Button
+                    onClick={() => handleDownload("mylo Setup-beta 1.0.0.exe")}
+                    style={{
+                      border: "1px solid #e06277",
+                    }}
+                  >
+                    Download Windows
+                  </Button>
+                </Grid>
               </Grid>
-              <Button
-                onClick={handleSubmit}
-                style={{
-                  border: "1px solid #e06277",
-                  margin: "2em",
-                  padding: "4px 100px",
-                }}
-              >
-                {SIGN_UP}
-              </Button>
             </>
           )}
         </Grid>
