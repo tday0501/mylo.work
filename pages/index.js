@@ -41,7 +41,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function Home({
+  BE_PRODUCTIVE, BUILT_FOR_YOU, TRULY_IMPORTANT, 
+}) {
   const classes = useStyles();
 
   function GridItem({ imageAlt, imageSrc, subtitle, subtext, videoSrc }) {
@@ -132,23 +134,33 @@ export default function Home() {
           </Grid>
           <GridItem
             imageAlt="Built for you image"
-            imageSrc={"https://s3.us-east-2.amazonaws.com/mylo.work/Built+for+you.png"}
+            imageSrc={BUILT_FOR_YOU}
             subtitle={BUILT_FOR}
             subtext={CURATE_SPACE}
           />
           <GridItem
             imageAlt="Truly important image"
-            imageSrc={"https://s3.us-east-2.amazonaws.com/mylo.work/Truly+Important.png"}
+            imageSrc={TRULY_IMPORTANT}
             subtitle={WHATS_TRULY}
             subtext={SPEED_LESS_TIME}
           />
           <GridItem
             subtitle={DONT_BE_BUSY}
             subtext={EASILY_SWITCH}
-            videoSrc="https://s3.us-east-2.amazonaws.com/mylo.work/Be+Productive.mp4"
+            videoSrc={BE_PRODUCTIVE}
           />
         </Grid>
       </Layout>
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      BE_PRODUCTIVE: 'https://s3.us-east-2.amazonaws.com/mylo.work/Be+Productive.mp4',
+      BUILT_FOR_YOU: 'https://s3.us-east-2.amazonaws.com/mylo.work/Built+for+you.png',
+      TRULY_IMPORTANT: 'https://s3.us-east-2.amazonaws.com/mylo.work/Built+for+you.png',
+    }
+  }
 }
