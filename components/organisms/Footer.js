@@ -11,7 +11,7 @@ export default function Layout() {
       justifyContent="center"
       width="100%"
     >
-      ©2022 Mylo Labs, Inc.
+      ©2022 Mylo
     </Box>
   );
 }
