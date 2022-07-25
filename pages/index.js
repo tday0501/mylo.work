@@ -155,7 +155,7 @@ export default function Home({
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   return {
     props: {
       BE_PRODUCTIVE: 'https://s3.us-east-2.amazonaws.com/mylo.work/Be+Productive.mp4',
